@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven3'
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -11,7 +14,7 @@ pipeline {
                 sh 'mvn -B clean package'
             }
         }
-        stage('Test') {
+        stage('Test')  {
             steps {
                 sh 'mvn -B test'
             }
